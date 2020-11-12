@@ -41,9 +41,9 @@ public static ProductDAO getInstance() {
 			preparedStatement = connection.prepareStatement(insertProduct);
 			preparedStatement.setInt(1, product.getProductId());
 			preparedStatement.setString(2, product.getProductName());
-			preparedStatement.setString(1, product.getDescription());
-			preparedStatement.setString(1, product.getCategory());
-			preparedStatement.setFloat(1, product.getPrice());
+			preparedStatement.setString(3, product.getDescription());
+			preparedStatement.setString(4, product.getCategory());
+			preparedStatement.setFloat(5, product.getPrice());
 			
 			result = preparedStatement.executeUpdate();
 			
