@@ -34,7 +34,7 @@ public static ProductDAO getInstance() {
 		Connection connection = DBUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String insertProduct = "insert into PRODUCT (productid,productname,description,category,price) values(?,?,?,?,?)";
+		String insertProduct = "insert into PRODUCT (productId,productName,description,category,price) values(?,?,?,?,?)";
 		
 		int result = 0;
 		try {
@@ -48,6 +48,8 @@ public static ProductDAO getInstance() {
 			result = preparedStatement.executeUpdate();
 			
 			if(result>0) {
+				System.out.println("Hello in createProduct");
+				connection.commit();
 				
 				return "success";
 			}else return "fail";
@@ -78,7 +80,7 @@ public static ProductDAO getInstance() {
 		ResultSet resultSet = null;
 		
 		Product product = null;
-		String query = "select * from product where productid=?";				
+		String query = "select * from PRODUCT where productId=?";				
 		try {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, id);
@@ -87,10 +89,10 @@ public static ProductDAO getInstance() {
 			
 			if(resultSet.next()) {
 					product = new Product();
-				product.setProductId(resultSet.getInt("productid"));
-				product.setProductName(resultSet.getString("productname"));
+				product.setProductId(resultSet.getInt("productId"));
+				product.setProductName(resultSet.getString("productName"));
 				product.setDescription(resultSet.getString("description"));
-				product.setCategory(resultSet.getString("description"));
+				product.setCategory(resultSet.getString("category"));
 				product.setPrice(resultSet.getFloat("price"));
 			}
 			
@@ -110,14 +112,12 @@ public static ProductDAO getInstance() {
 		finally {
 			DBUtils.closeConnection(connection);
 		}
-		return Optional.of(product);		
+		return Optional.ofNullable(product);		
 	}
 
 	@Override
 	public Optional<List<Product>> getProducts() {
 		// TODO Auto-generated method stub
-		
-
 		
 		return null;
 	}

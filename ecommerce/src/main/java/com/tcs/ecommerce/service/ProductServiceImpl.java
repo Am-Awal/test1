@@ -11,10 +11,14 @@ public class ProductServiceImpl implements ProductService {
 		// task for u
 	
 	private static ProductService dao;
+	private ProductServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}	
 	
 	public static ProductService getInstance() {
 		if(dao==null) {
 			dao = new ProductServiceImpl();
+			System.out.println("inside the if condition");
 			return dao;
 		}
 		return dao;	
