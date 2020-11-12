@@ -1,9 +1,13 @@
 package com.tcs.ecommerce.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 import com.tcs.ecommerce.model.Product;
+import com.tcs.ecommerce.utlis.DBUtils;
 
 public class ProductDAOImpl implements ProductDAO {
 	
@@ -17,6 +21,7 @@ public static ProductDAO getInstance() {
 	
 	if(dao==null) {
 		dao = new ProductDAOImpl();
+		return dao;
 	}
 	return dao;	
 	
@@ -24,7 +29,43 @@ public static ProductDAO getInstance() {
 	@Override
 	public String createProduct(Product product) {
 		// TODO Auto-generated method stub
-		return null;
+		
+		Connection connection = DBUtils.getConnection();
+		PreparedStatement preparedStatement = null;
+		
+		String insertProduct = "insert into PRODUCT (productid,productname,description,category,price) values(?,?,?,?,?)";
+		
+		int result = 0;
+		try {
+			preparedStatement = connection.prepareStatement(insertProduct);
+			preparedStatement.setInt(1, product.getProductId());
+			preparedStatement.setString(2, product.getProductName());
+			preparedStatement.setString(1, product.getDescription());
+			preparedStatement.setString(1, product.getCategory());
+			preparedStatement.setFloat(1, product.getPrice());
+			
+			result = preparedStatement.executeUpdate();
+			
+			if(result>0) {
+				
+				return "success";
+			}else return "fail";
+			
+			
+		} catch (SQLException e) {
+			
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
+		finally {DBUtils.closeConnection(connection);}
+		
 	}
 
 	@Override
