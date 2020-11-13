@@ -21,9 +21,9 @@ public class MainSpring {
 	
 	// DataSource.class used for implicit casting
 	
-	ProductService productService= context.getBean(ProductService.class);
+	ProductService productService = context.getBean(ProductService.class);
 	ProductService productService2 = context.getBean(ProductService.class);
-	Product product = new Product(3,"laptop","i5 10th gen",123.0f,"laptop");
+	Product product = new Product(1,"laptop","i5 10th gen",123.0f,"laptop");
 	String result = productService.createProduct(product);
 	
 	System.out.println(result);

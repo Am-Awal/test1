@@ -10,6 +10,14 @@
   		
   </properties>
  <dependencies>
+ 
+ <dependency>
+ <!--  Only bundled with java 1.6+ -->
+  <groupId>javax.annotation</groupId>
+  <artifactId>jsr250-api</artifactId>
+  <version>1.0</version>
+</dependency>
+  
  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
 <dependency>
     <groupId>org.apache.commons</groupId>
