@@ -1,15 +1,15 @@
-package com.tcs.employee;
+package com.tcs.department;
 
 import java.util.Optional;
 import java.util.Scanner;
 
-import com.tcs.employee.model.Employee;
-import com.tcs.employee.service.EmployeeService;
-import com.tcs.employee.service.EmployeeServiceImpl;
+import com.tcs.department.model.Department;
+import com.tcs.department.service.DepartmentService;
+import com.tcs.department.service.DepartmentServiceImpl;
 
 public class Main {
 	
-	public static Scanner scanner = new Scanner(System.in);
+public static Scanner scanner = new Scanner(System.in);
 	
 	//menu driven program from StackOverflow
 
@@ -27,10 +27,10 @@ public class Main {
 
                 case 1:
             		
-                	Employee employee = new Employee(2,100,101,"Employee Two",23,"Assistant");
-            		EmployeeService employeeService = EmployeeServiceImpl.getInstance();
+                	Department department = new Department(1,101,"Biology",null);
+                	DepartmentService departmentService = DepartmentServiceImpl.getInstance();
             		
-            		String result = employeeService.addEmployee(employee);
+            		String result = departmentService.addDepartment(department);
 
             		if("success".equals(result)) {
             			System.out.println("recored added successfully");
@@ -39,27 +39,27 @@ public class Main {
             			System.out.println("problem");
             		}
             		
-            		Optional<Employee> optional= employeeService.findById(employee.getId());
+            		Optional<Department> optional= departmentService.findById(department.getId());
             		
             		if(optional.isPresent()) {
-            			Employee employee2 = optional.get();
-            			System.out.println(employee2);
+            			Department depatment2 = optional.get();
+            			System.out.println(depatment2);
             		}
             		else {
-            			System.out.println("employee is not available");
+            			System.out.println("department is not available");
             		}
                     break;
                 case 2:
-                    //TODO code for updateEmployee
+                    //TODO code for updateDepartment
                     break;
                 case 3:
-                	//TODO code for deleteEmployee
+                	//TODO code for deleteDepartment
                     break;
                 case 4:
                 	//TODO code for findById
                     break;
                 case 5:
-                	//TODO code for getEmployees
+                	//TODO code for getDepartment
                     break;
                 case 6:
                 	//TODO code for findByORganizationId
@@ -97,9 +97,9 @@ public class Main {
 
         // Printing menu to screen
         System.out.println("Menu:");
-        System.out.println("1. Add Employee");
-        System.out.println("2. Update Employee");
-        System.out.println("3. Delete Employee");
+        System.out.println("1. Add Department");
+        System.out.println("2. Update Department");
+        System.out.println("3. Delete Department");
         System.out.println("4. Find by id");
         System.out.println("5. Get Employees");
         System.out.println("6. Find by organization id");
@@ -114,4 +114,4 @@ public class Main {
     }// End of showMenu
 
 
-}// end Main class
+}
