@@ -43,7 +43,7 @@ public class DBUtils {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return connection;
 //		
 //		Connection connection = null;
 //		try {

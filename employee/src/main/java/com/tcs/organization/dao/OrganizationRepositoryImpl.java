@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.tcs.department.model.Department;
 import com.tcs.employee.dao.EmployeeRepository;
 import com.tcs.employee.dao.EmployeeRepositoryImpl;
@@ -14,32 +17,18 @@ import com.tcs.employee.model.Employee;
 import com.tcs.employee.utils.DBUtils;
 import com.tcs.organization.model.Organization;
 
+@Repository
 public class OrganizationRepositoryImpl implements OrganizationRepository {
 	
-	
-	
-private OrganizationRepositoryImpl() {
-	
-		// TODO Auto-generated constructor stub
-}
-private static OrganizationRepository organizationRepo;
-
-public static OrganizationRepository getInstance() {
-	
-	if(organizationRepo==null) {
-		organizationRepo = new OrganizationRepositoryImpl();
-		return organizationRepo;
-	}
-	return organizationRepo;	
-	
-}
+	@Autowired
+	DBUtils dbUtils;
 
 
 	@Override
 	public String addOrganization(Organization organization) {
 		// TODO Auto-generated method stub
 
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
 		String insertOrganization = 
@@ -92,7 +81,7 @@ public static OrganizationRepository getInstance() {
 	public Optional<Organization> findById(long id) {
 		// TODO Auto-generated method stub
 
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		

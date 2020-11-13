@@ -1,29 +1,45 @@
 package com.tcs.organization.utils;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class DBUtils {
 	
-	public static Connection getConnection() {
+	@PostConstruct
+	public void init() {
+		
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		
+	}
+	
+	@Autowired
+	DataSource dataSource;
+	
+	public Connection getConnection() {
 		
 		Connection connection = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-				connection = DriverManager
-						.getConnection("jdbc:mysql://localhost:3306/TCS?useSSL=false", "root", "MYSQL123$");
+		try {			
+				connection = dataSource.getConnection();
 				connection.setAutoCommit(false);
 				return connection;
 				
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch ( SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return connection;
 	}
-		public static void closeConnection(Connection connection) {
+	
+	public static void closeConnection(Connection connection) {
 			
 			try {
 				connection.close();

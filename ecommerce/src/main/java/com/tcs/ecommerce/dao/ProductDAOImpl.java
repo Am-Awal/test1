@@ -47,7 +47,8 @@ public class ProductDAOImpl implements ProductDAO {
 		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String insertProduct = "insert into PRODUCT (productId,productName,description,category,price) values(?,?,?,?,?)";
+		String insertProduct = 
+				"insert into PRODUCT (productId,productName,description,category,price) values(?,?,?,?,?)";
 		
 		int result = 0;
 		try {

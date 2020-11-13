@@ -3,13 +3,21 @@
   <groupId>com.tcs</groupId>
   <artifactId>employee</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <properties>
+<properties>
   		<maven.compiler.target>1.8</maven.compiler.target>
   		<maven.compiler.source>1.8</maven.compiler.source>
   		
   		
   </properties>
  <dependencies>
+ 
+ <dependency>
+ <!--  Only bundled with java 1.6+ -->
+  <groupId>javax.annotation</groupId>
+  <artifactId>jsr250-api</artifactId>
+  <version>1.0</version>
+</dependency>
+  
  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
 <dependency>
     <groupId>org.apache.commons</groupId>
@@ -42,5 +50,4 @@
 	</dependency>
   
  </dependencies>
-
 </project>

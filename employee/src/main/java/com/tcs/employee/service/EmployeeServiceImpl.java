@@ -6,34 +6,24 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.tcs.employee.utils.DBUtils;
 import com.tcs.employee.dao.EmployeeRepository;
 import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 	
-	private EmployeeServiceImpl() {
-		
-		// TODO Auto-generated constructor stub
-}
-private static EmployeeService employeeServ;
-
-public static EmployeeService getInstance() {
-	
-	if(employeeServ==null) {
-		employeeServ = new EmployeeServiceImpl();
-		return employeeServ;
-	}
-	return employeeServ;	
-	
-}
-EmployeeRepository employeeRepository = EmployeeRepositoryImpl.getInstance();
+	@Autowired
+	EmployeeRepository employeeRepo;
 
 	@Override
 	public String addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		return employeeRepository.addEmployee(employee);
+		return employeeRepo.addEmployee(employee);
 		
 	}
 
@@ -52,7 +42,7 @@ EmployeeRepository employeeRepository = EmployeeRepositoryImpl.getInstance();
 	@Override
 	public Optional<Employee> findById(long id) {
 		// TODO Auto-generated method stub
-		return employeeRepository.findById(id);
+		return employeeRepo.findById(id);
 	}
 
 	@Override

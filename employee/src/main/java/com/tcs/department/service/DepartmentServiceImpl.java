@@ -3,6 +3,9 @@ package com.tcs.department.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.tcs.department.dao.DepartmentRepository;
 import com.tcs.department.dao.DepartmentRepositoryImpl;
 import com.tcs.department.model.Department;
@@ -12,29 +15,17 @@ import com.tcs.employee.model.Employee;
 import com.tcs.employee.service.EmployeeService;
 import com.tcs.employee.service.EmployeeServiceImpl;
 
+@Service
 public class DepartmentServiceImpl implements DepartmentService {
 	
-private DepartmentServiceImpl() {
-		
-		// TODO Auto-generated constructor stub
-}
-private static DepartmentService departmentServ;
-
-public static DepartmentService getInstance() {
+	@Autowired
+	DepartmentRepository departmentRepo;
 	
-	if(departmentServ==null) {
-		departmentServ = new DepartmentServiceImpl();
-		return departmentServ;
-	}
-	return departmentServ;	
-	
-}
-DepartmentRepository departmentRepository = DepartmentRepositoryImpl.getInstance();
 
 	@Override
 	public Optional<Department> findById(long id) {
 		// TODO Auto-generated method stub
-		return departmentRepository.findById(id);
+		return departmentRepo.findById(id);
 	}
 
 	@Override
@@ -52,7 +43,7 @@ DepartmentRepository departmentRepository = DepartmentRepositoryImpl.getInstance
 	@Override
 	public String addDepartment(Department department) {
 		// TODO Auto-generated method stub
-		return departmentRepository.addDepartment(department);
+		return departmentRepo.addDepartment(department);
 	}
 
 	@Override

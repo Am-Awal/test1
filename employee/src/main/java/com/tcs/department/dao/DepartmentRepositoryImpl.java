@@ -7,39 +7,30 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.tcs.department.model.Department;
 import com.tcs.employee.dao.EmployeeRepository;
 import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
 import com.tcs.employee.utils.DBUtils;
 
+@Repository
 public class DepartmentRepositoryImpl implements DepartmentRepository {
 	
-	private DepartmentRepositoryImpl() {
-		
-		// TODO Auto-generated constructor stub
-}
-private static DepartmentRepository departmentRepo;
-
-public static DepartmentRepository getInstance() {
-	
-	if(departmentRepo==null) {
-		departmentRepo = new DepartmentRepositoryImpl();
-		return departmentRepo;
-	}
-	return departmentRepo;
-}
+	@Autowired
+	DBUtils dbUtils;
 	
 
 	@Override
 	public String addDepartment(Department department) {
 		// TODO Auto-generated method stub
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
 		String insertEmployee = 
 				"insert into DEPARTMENT (departmentId,organizationId,name) values(?,?,?)";
-		
 		int result = 0;
 		try {
 			preparedStatement = connection.prepareStatement(insertEmployee);
@@ -87,7 +78,7 @@ public static DepartmentRepository getInstance() {
 	@Override
 	public Optional<Department> findById(long id) {
 		// TODO Auto-generated method stub
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		

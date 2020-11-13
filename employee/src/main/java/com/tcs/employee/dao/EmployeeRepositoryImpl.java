@@ -7,32 +7,24 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.tcs.employee.utils.DBUtils;
 import com.tcs.employee.model.Employee;
 
+@Repository
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 	
-private EmployeeRepositoryImpl() {
-	
-		// TODO Auto-generated constructor stub
-}
-private static EmployeeRepository employeeRepo;
+	@Autowired
+	DBUtils dbUtils;
 
-public static EmployeeRepository getInstance() {
-	
-	if(employeeRepo==null) {
-		employeeRepo = new EmployeeRepositoryImpl();
-		return employeeRepo;
-	}
-	return employeeRepo;	
-	
-}
 
 	@Override
 	public String addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
 
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
 		String insertEmployee = "insert into EMPLOYEE (employeeId,organizationId,departmentId,name,age, position) values(?,?,?,?,?,?)";
@@ -88,7 +80,7 @@ public static EmployeeRepository getInstance() {
 	public Optional<Employee> findById(long id) {
 		// TODO Auto-generated method stub
 
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
