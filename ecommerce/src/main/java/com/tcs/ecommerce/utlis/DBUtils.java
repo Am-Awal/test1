@@ -6,13 +6,15 @@ import java.sql.SQLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 
+// whenever we will come across the Utility classes then we should mark them with @Component
+// singleton
+
+@Component // this anno. is for utility type classes
 public class DBUtils {
-	
-	
-	@Autowired
-	public static Environment environment;
-	public static Connection getConnection() {
+
+	public Connection getConnection() {
 		
 		Connection connection = null;
 		try {
@@ -29,7 +31,7 @@ public class DBUtils {
 		}
 		return connection;
 	}
-		public static void closeConnection(Connection connection) {
+		public void closeConnection(Connection connection) {
 			
 			try {
 				connection.close();

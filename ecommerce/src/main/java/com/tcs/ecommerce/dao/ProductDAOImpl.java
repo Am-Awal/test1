@@ -7,31 +7,44 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.tcs.ecommerce.model.Product;
 import com.tcs.ecommerce.utlis.DBUtils;
 
+// for DAO impl. classes
+@Repository // must provide this class-level anno.
+
+
 public class ProductDAOImpl implements ProductDAO {
 	
-private ProductDAOImpl() {
+	// DBUtils obj. needed or no?
 	
-		// TODO Auto-generated constructor stub
-}
-private static ProductDAO dao;
-
-public static ProductDAO getInstance() {
+	// to inform Spring that we want this component here.
+	@Autowired 
+	DBUtils dbUtils;
 	
-	if(dao==null) {
-		dao = new ProductDAOImpl();
-		return dao;
-	}
-	return dao;	
-	
-}
+//private ProductDAOImpl() {
+//	
+//		// TODO Auto-generated constructor stub
+//}
+//private static ProductDAO dao;
+//
+//public static ProductDAO getInstance() {
+//	
+//	if(dao==null) {
+//		dao = new ProductDAOImpl();
+//		return dao;
+//	}
+//	return dao;	
+//	
+//}
 	@Override
 	public String createProduct(Product product) {
 		// TODO Auto-generated method stub
 		
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
 		String insertProduct = "insert into PRODUCT (productId,productName,description,category,price) values(?,?,?,?,?)";
@@ -67,7 +80,7 @@ public static ProductDAO getInstance() {
 			e.printStackTrace();
 			return "fail";
 		}
-		finally {DBUtils.closeConnection(connection);}
+		finally {dbUtils.closeConnection(connection);}
 		
 	}
 
@@ -75,7 +88,7 @@ public static ProductDAO getInstance() {
 	public Optional<Product> getProductById(int id) {
 		// TODO Auto-generated method stub
 		
-		Connection connection = DBUtils.getConnection();
+		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
@@ -110,7 +123,7 @@ public static ProductDAO getInstance() {
 			return Optional.empty();
 		}
 		finally {
-			DBUtils.closeConnection(connection);
+			dbUtils.closeConnection(connection);
 		}
 		return Optional.ofNullable(product);		
 	}
