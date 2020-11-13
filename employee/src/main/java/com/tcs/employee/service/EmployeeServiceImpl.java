@@ -1,17 +1,12 @@
 package com.tcs.employee.service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tcs.employee.utils.DBUtils;
 import com.tcs.employee.dao.EmployeeRepository;
-import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
 
 @Service

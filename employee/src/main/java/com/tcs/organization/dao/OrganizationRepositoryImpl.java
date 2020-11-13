@@ -11,10 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tcs.department.model.Department;
-import com.tcs.employee.dao.EmployeeRepository;
-import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
-import com.tcs.employee.utils.DBUtils;
+import com.tcs.organization.utils.DBUtils;
 import com.tcs.organization.model.Organization;
 
 @Repository

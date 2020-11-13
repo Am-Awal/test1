@@ -15,7 +15,10 @@ public class MainSpring {
 		
 		DepartmentService departmentService = context.getBean(DepartmentService.class);
 		
-		//Department department = new Department(5, organizationId, name, employees)
+		Department department = new Department(5, 7, "Department 5", null);
+		String result = departmentService.addDepartment(department);
+		
+		System.out.println(result);
 		
 	}
 

@@ -7,13 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tcs.department.dao.DepartmentRepository;
-import com.tcs.department.dao.DepartmentRepositoryImpl;
 import com.tcs.department.model.Department;
-import com.tcs.employee.dao.EmployeeRepository;
-import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
-import com.tcs.employee.service.EmployeeService;
-import com.tcs.employee.service.EmployeeServiceImpl;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {

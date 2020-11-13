@@ -7,13 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tcs.department.model.Department;
-import com.tcs.employee.dao.EmployeeRepository;
-import com.tcs.employee.dao.EmployeeRepositoryImpl;
 import com.tcs.employee.model.Employee;
-import com.tcs.employee.service.EmployeeService;
-import com.tcs.employee.service.EmployeeServiceImpl;
 import com.tcs.organization.dao.OrganizationRepository;
-import com.tcs.organization.dao.OrganizationRepositoryImpl;
 import com.tcs.organization.model.Organization;
 
 @Service
