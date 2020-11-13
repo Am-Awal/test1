@@ -4,8 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+
 public class DBUtils {
 	
+	
+	@Autowired
+	public static Environment environment;
 	public static Connection getConnection() {
 		
 		Connection connection = null;
