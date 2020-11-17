@@ -25,8 +25,7 @@ public class DBUtils {
 	}
 	
 	@Autowired
-	DataSource dataSource;
-	
+	DataSource dataSource;	
 	public Connection getConnection() {
 		
 		Connection connection = null;

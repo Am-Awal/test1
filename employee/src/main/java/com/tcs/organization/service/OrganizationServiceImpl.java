@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.tcs.department.model.Department;
 import com.tcs.employee.model.Employee;
-import com.tcs.organization.dao.OrganizationRepository;
+import com.tcs.organization.repository.OrganizationRepository;
 import com.tcs.organization.model.Organization;
 
 @Service
@@ -16,14 +16,22 @@ public class OrganizationServiceImpl implements OrganizationService {
 	
 
 	@Autowired
-	OrganizationRepository organizationRepo;
+	OrganizationRepository organizationRepository;
 
 
 
 	@Override
 	public String addOrganization(Organization organization) {
 		// TODO Auto-generated method stub
-		return organizationRepo.addOrganization(organization);
+		Organization organization2 = null;
+		try {
+			organization2 = organizationRepository.save(organization);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
 	}
 
 	@Override
@@ -41,7 +49,7 @@ public class OrganizationServiceImpl implements OrganizationService {
 	@Override
 	public Optional<Organization> findById(long id) {
 		// TODO Auto-generated method stub
-		return organizationRepo.findById(id);
+		return organizationRepository.findById(id);
 	}
 
 	@Override

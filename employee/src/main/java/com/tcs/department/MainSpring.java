@@ -19,6 +19,7 @@ public class MainSpring {
 		String result = departmentService.addDepartment(department);
 		
 		System.out.println(result);
+		context.close();
 		
 	}
 

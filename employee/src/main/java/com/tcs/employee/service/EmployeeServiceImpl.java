@@ -6,19 +6,28 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tcs.employee.dao.EmployeeRepository;
+import com.tcs.department.model.Department;
+import com.tcs.employee.repository.EmployeeRepository;
 import com.tcs.employee.model.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired
-	EmployeeRepository employeeRepo;
+	EmployeeRepository employeeRepository;
 
 	@Override
 	public String addEmployee(Employee employee) {
 		// TODO Auto-generated method stub
-		return employeeRepo.addEmployee(employee);
+		Employee employee2 = null;
+		try {
+			employee2 = employeeRepository.save(employee);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
 		
 	}
 
@@ -37,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Optional<Employee> findById(long id) {
 		// TODO Auto-generated method stub
-		return employeeRepo.findById(id);
+		return employeeRepository.findById(id);
 	}
 
 	@Override

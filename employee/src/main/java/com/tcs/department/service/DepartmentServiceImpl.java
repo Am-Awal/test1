@@ -6,21 +6,21 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tcs.department.dao.DepartmentRepository;
-import com.tcs.department.model.Department;
+import com.tcs.department.repository.DepartmentRepository;
 import com.tcs.employee.model.Employee;
+import com.tcs.department.model.Department;
 
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 	
 	@Autowired
-	DepartmentRepository departmentRepo;
+	DepartmentRepository departmentRepository;
 	
 
 	@Override
 	public Optional<Department> findById(long id) {
 		// TODO Auto-generated method stub
-		return departmentRepo.findById(id);
+		return departmentRepository.findById(id);
 	}
 
 	@Override
@@ -38,7 +38,15 @@ public class DepartmentServiceImpl implements DepartmentService {
 	@Override
 	public String addDepartment(Department department) {
 		// TODO Auto-generated method stub
-		return departmentRepo.addDepartment(department);
+		Department department2 = null;
+		try {
+			department2 = departmentRepository.save(department);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "fail";
+		}
 	}
 
 	@Override
