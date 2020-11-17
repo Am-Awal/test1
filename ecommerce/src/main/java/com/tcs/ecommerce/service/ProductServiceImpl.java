@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.tcs.ecommerce.dao.ProductDAO;
 import com.tcs.ecommerce.dao.ProductDAOImpl;
 import com.tcs.ecommerce.model.Product;
+import com.tcs.repository.ProductRepository;
 
 //for Service impl. classes
 @Service
@@ -16,13 +17,23 @@ public class ProductServiceImpl implements ProductService {
 		// task for u
 	
 	@Autowired
-	private ProductDAO productDao;
+	ProductRepository productRepository;
 	
 	@Override
 	public String createProduct(Product product) {
 		// TODO Auto-generated method stub
-		return productDao.createProduct(product);
+		Product product2 =null;
+		try {
+				product2 = productRepository.save(product);
+				return "success";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+			
+		}
 	}
+		
+	
 
 	@Override
 	public Optional<Product> getProductById(int id) {
