@@ -20,7 +20,6 @@ public class Product {
 	@Id
 	@Column(name = "pro_id")
 	private int productId;
-	
 	@Column(name = "product_name")
 	private String productName;
 	

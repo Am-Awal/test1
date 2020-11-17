@@ -22,14 +22,14 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public String createProduct(Product product) {
 		// TODO Auto-generated method stub
-		Product product2 =null;
+		Product product2 = null;
 		try {
-				product2 = productRepository.save(product);
-				return "success";
-		}catch (Exception e) {
+			product2 = productRepository.save(product);
+			return "success";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return "fail";
-			
 		}
 	}
 		
@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Optional<Product> getProductById(int id) {
 		// TODO Auto-generated method stub
-		return productDao.getProductById(id);
+		return null;
 	}
 
 }
