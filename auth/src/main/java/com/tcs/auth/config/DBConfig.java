@@ -21,9 +21,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.tcs.ecommerce.repository")
+@EnableJpaRepositories("com.tcs.auth.repository")
 @PropertySource("classpath:db.properties")
-@ComponentScan("com.tcs.ecommerce")
+@ComponentScan("com.tcs.auth")
 public class DBConfig {
 	
 	@Autowired
@@ -56,7 +56,7 @@ public class DBConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
 		properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
 		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-		entityManagerFactoryBean.setPackagesToScan("com.tcs.ecommerce.model");
+		entityManagerFactoryBean.setPackagesToScan("com.tcs.auth.model");
 		entityManagerFactoryBean.setJpaProperties(properties);
 		
 		return entityManagerFactoryBean;
