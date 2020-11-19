@@ -12,9 +12,13 @@ import com.tcs.department.model.Department;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,10 +32,14 @@ public class Organization {
 	@Id
 	@Column(name = "org_id")
 	private long id;
-	@Column(name = "org_id")
+	@Column(name = "org_name")
 	private String name;
 	private String address;
+	
+	@OneToOne(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Department> departments = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Employee> employees = new ArrayList<>();
 
 }
