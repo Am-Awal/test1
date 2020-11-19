@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tcs.ecommerce.model.Product;
-import com.tcs.repository.ProductRepository;
+import com.tcs.ecommerce.repository.ProductRepository;
 
 //for Service impl. classes
 @Service

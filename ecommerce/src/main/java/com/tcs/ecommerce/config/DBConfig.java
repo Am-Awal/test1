@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.tcs.repository")
+@EnableJpaRepositories("com.tcs.ecommerce.repository")
 @PropertySource("classpath:db.properties")
 @ComponentScan("com.tcs.ecommerce")
 //@PropertySource("file://location")

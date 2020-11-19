@@ -1,4 +1,4 @@
-package com.tcs.repository;
+package com.tcs.ecommerce.repository;
 
 import java.util.List;
 

@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 public class Page {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private int number;
 	private String content;
