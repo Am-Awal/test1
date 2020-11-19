@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.tcs.ecommerce.model.Product;
 import com.tcs.ecommerce.repository.ProductRepository;
@@ -45,7 +47,7 @@ public class ProductServiceImpl implements ProductService {
 
 
 	@Override
-	public void deleteproduct(int id) {
+	public void deleteProduct(int id) {
 		// TODO Auto-generated method stub
 		productRepository.deleteById(id);
 		
@@ -71,9 +73,10 @@ public class ProductServiceImpl implements ProductService {
 
 
 	@Override
+	@Transactional
 	public Optional<List<Product>> findByPriceGreaterThan(float priceValue) {
 		// TODO Auto-generated method stub
-		return null;
+		return Optional.ofNullable(productRepository.findByPriceGreaterThan(priceValue));
 	}
 
 

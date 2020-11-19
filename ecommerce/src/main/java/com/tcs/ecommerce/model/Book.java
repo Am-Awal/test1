@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +29,7 @@ public class Book {
 	private String author;
 	private String isbn;
 	
-	@OneToMany(mappedBy = "book" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToOne(mappedBy = "book" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private Set<Page> pages = new HashSet<>();
 
 }

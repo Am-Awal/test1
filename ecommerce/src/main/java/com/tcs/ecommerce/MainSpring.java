@@ -25,14 +25,33 @@ public class MainSpring {
 		ProductService productService = context.getBean(ProductService.class);
 //		ProductService productService2 = context.getBean(ProductService.class);
 //		
-//		Product product = new Product(8, "laptop", "i5 10th gen", 123.0f, "laptop");
+//		Product product = new Product(1, "laptop", "i5 10th gen", 1003.0f, "laptop");
 //		String result = productService.createProduct(product);
-//		System.out.println(result);
+		
+//		String result1 = productService.createProduct(new Product(1, "laptop", "i5 10th gen", 1003.0f, "mac laptop"));
+//		String result2 = productService.createProduct(new Product(2, "laptop", "i5 10th gen", 2003.0f, "laptop"));
+//		String result3 = productService.createProduct(new Product(3, "laptop", "i5 10th gen", 3003.0f, "mac laptop"));
+//		String result4 = productService.createProduct(new Product(4, "laptop", "i5 10th gen", 4003.0f, "laptop"));
+//		String result5 = productService.createProduct(new Product(5, "laptop", "i5 10th gen", 5003.0f, "mac laptop"));
+//		String result6 = productService.createProduct(new Product(6, "laptop", "i5 10th gen", 6003.0f, "laptop"));
+//		String result7 = productService.createProduct(new Product(7, "laptop", "i5 10th gen", 7003.0f, "laptop"));
+//		String result10 = productService.createProduct(new Product(10, "laptop", "i5 10th gen", 8003.0f, "laptop"));
+//		String result9 = productService.createProduct(new Product(9, "laptop", "i5 10th gen", 9003.0f, "laptop"));
+//		
+//		System.out.println(result1);
+//		System.out.println(result2);
+//		System.out.println(result3);
+//		System.out.println(result4);
+//		System.out.println(result5);
+//		System.out.println(result6);
+//		System.out.println(result7);
+//		System.out.println(result10);
+//		System.out.println(result9);
 //		
 //		System.out.println(productService.equals(productService2));
 //		System.out.println(productService == productService2);
 		
-		Optional<List<Product>> optional = productService.getProductsByCategory("mac laptop");
+		Optional<List<Product>> optional = productService.findByPriceGreaterThan(5000.0f);
 		
 		if(optional.isPresent()) {
 			List<Product> products = optional.get();

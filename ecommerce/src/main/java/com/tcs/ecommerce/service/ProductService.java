@@ -8,7 +8,7 @@ import com.tcs.ecommerce.model.Product;
 public interface ProductService {
 	public String  createProduct(Product product);
 	public Optional<Product> getProductById(int id);
-	public void deleteproduct(int id);
+	public void deleteProduct(int id);
 	public Optional<java.util.List<Product>> getProducts();
 	public Optional<java.util.List<Product>> getProductsByCategory(String catName);
 	public Optional<java.util.List<Product>> findByPriceGreaterThan(float priceValue);
