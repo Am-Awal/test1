@@ -73,7 +73,7 @@
             <version>2.2</version>
             <configuration>
                 <port>9000</port>   
-                <path>/spring5-webmvc-demo</path>  
+                <path>/</path>  
             </configuration>
         </plugin>
  
