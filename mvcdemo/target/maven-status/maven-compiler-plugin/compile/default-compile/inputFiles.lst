@@ -1,4 +1,5 @@
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/controller/HomeController.java
+/home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/model/Login.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/config/MyWebAppInitializer.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/controller/AuthController.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/config/WebConfig.java

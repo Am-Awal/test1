@@ -22,3 +22,13 @@
 0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:03:20 +0000] "GET /auth/login.html HTTP/1.1" 404 949 http-bio-9000-exec-1 2
 0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:05:22 +0000] "GET / HTTP/1.1" 200 205 http-bio-9000-exec-1 91
 0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:05:25 +0000] "GET /auth/login.html HTTP/1.1" 200 137 http-bio-9000-exec-3 558
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:18:29 +0000] "GET / HTTP/1.1" 200 205 http-bio-9000-exec-1 87
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:18:33 +0000] "GET /auth/login.html HTTP/1.1" 200 400 http-bio-9000-exec-3 681
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:19:47 +0000] "GET /auth/login.html HTTP/1.1" 200 454 http-bio-9000-exec-5 57
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:17:19:48 +0000] "POST /auth/login.html HTTP/1.1" 200 205 http-bio-9000-exec-7 19
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:09:35 +0000] "GET / HTTP/1.1" 200 205 http-bio-9000-exec-9 4
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:09:38 +0000] "GET /auth/login.html HTTP/1.1" 200 457 http-bio-9000-exec-10 46
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:09:44 +0000] "POST /auth/login.html HTTP/1.1" 200 205 http-bio-9000-exec-3 3
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:10:48 +0000] "GET / HTTP/1.1" 200 205 http-bio-9000-exec-1 95
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:10:52 +0000] "GET /auth/login.html HTTP/1.1" 200 457 http-bio-9000-exec-3 8
+0:0:0:0:0:0:0:1 - - [20/Nov/2020:18:10:56 +0000] "POST /auth/login.html HTTP/1.1" 200 205 http-bio-9000-exec-4 31
