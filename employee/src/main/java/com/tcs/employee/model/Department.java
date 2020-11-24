@@ -1,4 +1,4 @@
-package com.tcs.department.model;
+package com.tcs.employee.model;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,11 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import com.tcs.employee.model.Employee;
-import com.tcs.organization.model.Organization;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

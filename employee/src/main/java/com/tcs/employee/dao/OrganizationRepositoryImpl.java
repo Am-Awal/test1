@@ -1,4 +1,4 @@
-package com.tcs.department.dao;
+package com.tcs.employee.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,35 +10,34 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.tcs.department.model.Department;
+import com.tcs.employee.model.Department;
 import com.tcs.employee.model.Employee;
-import com.tcs.organization.model.Organization;
-import com.tcs.organization.service.OrganizationService;
-import com.tcs.organization.service.OrganizationServiceImpl;
-import com.tcs.department.utils.DBUtils;
+import com.tcs.employee.utils.DBUtils;
+import com.tcs.employee.model.Organization;
 
 @Repository
-public class DepartmentRepositoryImpl implements DepartmentRepository {
+public class OrganizationRepositoryImpl implements OrganizationRepository {
 	
 	@Autowired
 	DBUtils dbUtils;
-	
+
 
 	@Override
-	public String addDepartment(Department department) {
+	public String addOrganization(Organization organization) {
 		// TODO Auto-generated method stub
+
 		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		
-		String insertEmployee = 
-				"insert into DEPARTMENT (departmentId,organizationId,name) values(?,?,?)";
+		String insertOrganization = 
+			"insert into ORGANIZATION (organizationId, name, address) values(?,?,?)";
+		
 		int result = 0;
 		try {
-			preparedStatement = connection.prepareStatement(insertEmployee);
-			preparedStatement.setLong(1, department.getId());
-			preparedStatement.setLong(2, department.getId());
-			preparedStatement.setString(3, department.getName());
-			
+			preparedStatement = connection.prepareStatement(insertOrganization);
+			preparedStatement.setLong(1, organization.getId());
+			preparedStatement.setString(2, organization.getName());
+			preparedStatement.setString(3, organization.getAddress());
 			result = preparedStatement.executeUpdate();
 			
 			if(result>0) {
@@ -65,28 +64,27 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 	}
 
 	@Override
-	public String updateDepartment(long id) {
+	public String updateOrganization(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String deleteDepartment(long id) {
+	public String deleteOrganization(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Optional<Department> findById(long id) {
+	public Optional<Organization> findById(long id) {
 		// TODO Auto-generated method stub
+
 		Connection connection = dbUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		Department department = null;
-		OrganizationService myOrgServ = new OrganizationServiceImpl();
-		Optional<Organization> myOrg = Optional.ofNullable(new Organization());
-		String query = "select * from DEPARTMENT where departmentId=?";				
+		Organization organization = null;
+		String query = "select * from ORGANIZATION where organizationId=?";				
 		try {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setLong(1, id);
@@ -94,13 +92,10 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 			resultSet = preparedStatement.executeQuery();
 			
 			if(resultSet.next()) {
-					department = new Department();
-					myOrg = myOrgServ.findById(resultSet.getLong("organizationId"));
-					
-					department.setId(resultSet.getInt("departmentId"));
-					department.setName(resultSet.getString("name"));
-					department.setOrganization(myOrg);
-
+				organization = new Organization();
+				organization.setId(resultSet.getInt("organizationId"));
+				organization.setName(resultSet.getString("name"));
+				organization.setAddress(resultSet.getString("address"));
 			}
 			
 			
@@ -119,7 +114,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 		finally {
 			DBUtils.closeConnection(connection);
 		}
-		return Optional.ofNullable(department);		
+		return Optional.ofNullable(organization);		
 	}
 
 	@Override
@@ -129,7 +124,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 	}
 
 	@Override
-	public Optional<List<Department>> findByOrganizationId(long id) {
+	public Optional<List<Department>> getDepartments() {
 		// TODO Auto-generated method stub
 		return null;
 	}

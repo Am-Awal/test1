@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tcs.employee.utils.DBUtils;
-import com.tcs.organization.model.Organization;
-import com.tcs.organization.service.OrganizationService;
-import com.tcs.organization.service.OrganizationServiceImpl;
-import com.tcs.department.model.Department;
-import com.tcs.department.service.DepartmentService;
-import com.tcs.department.service.DepartmentServiceImpl;
+import com.tcs.employee.model.Organization;
+import com.tcs.employee.service.OrganizationService;
+import com.tcs.employee.service.OrganizationServiceImpl;
+import com.tcs.employee.model.Department;
+import com.tcs.employee.service.DepartmentService;
+import com.tcs.employee.service.DepartmentServiceImpl;
 import com.tcs.employee.model.Employee;
 
 @Repository

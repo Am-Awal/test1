@@ -11,9 +11,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.tcs.department.model.Department;
-import com.tcs.organization.model.Organization;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,6 +36,7 @@ public class Employee {
 	private String name;
 	private int age;
 	private String position;
+	
 	public void setOrganization(Optional<Organization> myOrg) {
 		// TODO Auto-generated method stub
 		

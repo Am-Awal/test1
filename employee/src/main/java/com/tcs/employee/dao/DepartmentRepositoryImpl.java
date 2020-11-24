@@ -1,4 +1,4 @@
-package com.tcs.department.dao;
+package com.tcs.employee.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,12 +10,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.tcs.department.model.Department;
+import com.tcs.employee.model.Department;
 import com.tcs.employee.model.Employee;
-import com.tcs.organization.model.Organization;
-import com.tcs.organization.service.OrganizationService;
-import com.tcs.organization.service.OrganizationServiceImpl;
-import com.tcs.department.utils.DBUtils;
+import com.tcs.employee.model.Organization;
+import com.tcs.employee.service.OrganizationService;
+import com.tcs.employee.service.OrganizationServiceImpl;
+import com.tcs.employee.utils.DBUtils;
 
 @Repository
 public class DepartmentRepositoryImpl implements DepartmentRepository {

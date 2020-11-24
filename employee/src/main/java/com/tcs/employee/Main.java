@@ -27,8 +27,9 @@ public class Main {
 
                 case 1:
             		
-                	Employee employee = new Employee(2,100,101,"Employee Two",23,"Assistant");
-            		EmployeeService employeeService = EmployeeServiceImpl.getInstance();
+                	Employee employee = new Employee(2,null,null,"Employee Two",23,"Assistant");
+                	//Employee employee = new Employee(id, organization, department, name, age, position)
+            		EmployeeService employeeService = new EmployeeServiceImpl();
             		
             		String result = employeeService.addEmployee(employee);
 
