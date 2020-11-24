@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tcs.department.model.Department;
 import com.tcs.employee.repository.EmployeeRepository;
 import com.tcs.employee.model.Employee;
 
