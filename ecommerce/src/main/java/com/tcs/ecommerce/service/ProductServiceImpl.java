@@ -8,6 +8,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tcs.ecommerce.dao.ProductDAO;
+import com.tcs.ecommerce.dao.ProductDAOImpl;
 import com.tcs.ecommerce.model.Product;
 import com.tcs.ecommerce.repository.ProductRepository;
 

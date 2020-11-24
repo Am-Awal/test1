@@ -11,6 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.tcs.employee.utils.DBUtils;
+import com.tcs.organization.model.Organization;
+import com.tcs.organization.service.OrganizationService;
+import com.tcs.organization.service.OrganizationServiceImpl;
+import com.tcs.department.model.Department;
+import com.tcs.department.service.DepartmentService;
+import com.tcs.department.service.DepartmentServiceImpl;
 import com.tcs.employee.model.Employee;
 
 @Repository
@@ -33,8 +39,8 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 		try {
 			preparedStatement = connection.prepareStatement(insertEmployee);
 			preparedStatement.setLong(1, employee.getId());
-			preparedStatement.setLong(2, employee.getOrganizationId());
-			preparedStatement.setLong(3, employee.getDepartmentId());
+			preparedStatement.setLong(2, employee.getOrganization().getId());
+			preparedStatement.setLong(3, employee.getDepartment().getId());
 			preparedStatement.setString(4, employee.getName());
 			preparedStatement.setInt(5, employee.getAge());
 			preparedStatement.setString(6, employee.getPosition());
@@ -91,13 +97,19 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 			preparedStatement.setLong(1, id);
 			
 			resultSet = preparedStatement.executeQuery();
+			OrganizationService orgServ = new OrganizationServiceImpl();
+			DepartmentService depServ = new DepartmentServiceImpl();
+
+			
 			
 			if(resultSet.next()) {
 					employee = new Employee();
 				employee.setId(resultSet.getInt("employeeId"));
 				employee.setName(resultSet.getString("name"));
-				employee.setOrganizationId(resultSet.getLong("organizationId"));
-				employee.setDepartmentId(resultSet.getLong("departmentId"));
+				Optional<Organization> myOrg = orgServ.findById(resultSet.getLong("organizationId"));
+				Optional<Department> myDep = depServ.findById(resultSet.getLong("departmentId"));
+				employee.setOrganization(myOrg);
+				employee.setDepartment(myDep);
 				employee.setAge(resultSet.getInt("age"));
 				employee.setPosition(resultSet.getString("position"));
 

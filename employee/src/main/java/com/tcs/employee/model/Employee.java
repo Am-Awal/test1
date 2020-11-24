@@ -1,12 +1,14 @@
 package com.tcs.employee.model;
 
 
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.tcs.department.model.Department;
@@ -26,13 +28,10 @@ public class Employee {
 	@Id
 	@Column(name = "emp_id")
 	private long id;
-	@Column(name = "org_id")
-	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "org_id")
 	private Organization organization;
-	
-	@OneToMany(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "dept_id")
 	private Department department;
 	
@@ -40,6 +39,14 @@ public class Employee {
 	private String name;
 	private int age;
 	private String position;
+	public void setOrganization(Optional<Organization> myOrg) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setDepartment(Optional<Department> myDep) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

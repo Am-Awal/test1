@@ -7,13 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Hello from Spring MVC</h1>
-	<div>
-		<a href="/auth/login.html">Login</a>	
-		
-	</div>
-	<a href="/guest">Guest Link</a>
-	<a href="/admin">Admin Link</a>
+Hello from Guest<br>
+${fname }
+${mname }
+
+${lname }
 
 </body>
 </html>

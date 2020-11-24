@@ -2,15 +2,16 @@ package com.tcs.mvcdemo.config;
 
 import java.util.Properties;
 
-import org.apache.commons.dbcp2.BasicDataSource;
+import javax.sql.DataSource;
+
 import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -19,7 +20,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories("com.tcs.mvcdemo.repository")
 @PropertySource("classpath:db.properties")
-@ComponentScan("com.tcs.mvcdemo")
 public class RootConfig {
 // services repository
 	
@@ -32,10 +32,10 @@ public class RootConfig {
 	// or use default method name getMySQLDataSource in main class
 	@Bean // this is a method-level annotation
 	//@Lazy
-	public BasicDataSource getMySQLDataSource() {
+	public DataSource getMySQLDataSource() {
 		
 		//System.out.println("Hello from Abhi early loading");
-		BasicDataSource dataSource = new BasicDataSource();
+		DriverManagerDataSource dataSource = new  DriverManagerDataSource();
 		
 		dataSource.setDriverClassName(environment.getProperty("db.driver"));
 		dataSource.setUrl(environment.getProperty("db.url"));

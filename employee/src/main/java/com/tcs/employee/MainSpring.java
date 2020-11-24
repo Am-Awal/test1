@@ -31,11 +31,11 @@ public class MainSpring {
 		String result2 = organizationService.addOrganization(org2);
 		String result3 = organizationService.addOrganization(org3);
 		
-		Department dep1 = new Department(23, 23, "Dep 23", null);
-		Department dep2 = new Department(33, 33, "Dep 33", null);
-		Department dep3 = new Department(43, 43, "Dep 43", null);
-		Department dep4 = new Department(13, 13, "Dep 13", null);
-		//Department dep4 = new Department(id, organizationId, name, employees);
+		Department dep1 = new Department(23, org1, "Dep 23", null);
+		Department dep2 = new Department(33, org3, "Dep 33", null);
+		Department dep3 = new Department(43, org3, "Dep 43", null);
+		Department dep4 = new Department(13, org2, "Dep 13", null);
+		//Department dep4 = new Department(id, Organization, name, employees);
 
 		
 		String result4 = departmentService.addDepartment(dep1);

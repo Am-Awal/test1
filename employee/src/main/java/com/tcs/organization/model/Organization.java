@@ -36,10 +36,10 @@ public class Organization {
 	private String name;
 	private String address;
 	
-	@OneToOne(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Department> departments = new ArrayList<>();
 	
-	@OneToOne(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "organization" ,fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	private List<Employee> employees = new ArrayList<>();
 
 }

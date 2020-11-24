@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories("com.tcs.employee.repository")
 @PropertySource("classpath:db.properties")
 @ComponentScan("com.tcs.employee")
+
 //@PropertySource("file://location")
 public class DBConfig {
 	
