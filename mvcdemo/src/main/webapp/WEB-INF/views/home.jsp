@@ -11,7 +11,11 @@
 	<div>
 		<a href="/auth/login.html">Login</a>	
 		
-	</div>
+	</div><br>
+		<div>
+		<a href="/register/registration.html">Register</a>	
+		
+	</div><br>
 	<a href="/guest">Guest Link</a>
 	<a href="/admin">Admin Link</a>
 

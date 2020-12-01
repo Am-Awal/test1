@@ -4,6 +4,7 @@
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/interceptor/GuestInterceptor.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/controller/AuthController.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/config/WebConfig.java
+/home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/controller/RegistrationController.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/repository/LoginRepository.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/config/RootConfig.java
 /home/ubuntu/git/repository/mvcdemo/src/main/java/com/tcs/mvcdemo/interceptor/AdminInterceptor.java
